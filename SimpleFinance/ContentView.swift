@@ -2,7 +2,7 @@
 //  ContentView.swift
 //  SimpleFinance
 //
-//  Created by Alex on 5/3/21.
+//  Created by Alex Babou on 5/3/21.
 //
 
 import SwiftUI
