@@ -12,6 +12,15 @@ struct ContentView: View {
     @State var before = ""
     @State var after = ""
     
+    var calculateReturn: Double {
+        if before == "" || after == "" {
+            return 0
+        }
+        let old = Double(before) ?? 0
+        let new = Double(after) ?? 0
+        return (new - old) / old * 100
+    }
+    
     //Dollar Conversion
     @State var usd = ""
     @State var convert = 0
@@ -22,7 +31,7 @@ struct ContentView: View {
     @State var principal = ""
     @State var rate = ""
     @State var time = ""
-    
+
     var MortgagePmt: Double {
         if principal == "" || time == "" || rate == "" {
             return 0
@@ -32,14 +41,6 @@ struct ContentView: View {
         let r = Double(rate) ?? 0
         return ((p * r / 100 / 12) * pow(1 + r / 100 / 12, t * 12))
             / (pow(1 + r / 100 / 12, t * 12) - 1)
-    }
-    //Return Calculator
-    var calculateReturn: Double {
-        if before == "" || after == "" {
-            return 0
-        }
-        return ((Double(after) ?? 0) - (Double(before) ?? 0))
-            / (Double(before) ?? 0) * 100.00
     }
     
     var body: some View {
